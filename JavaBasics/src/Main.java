@@ -1,107 +1,48 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
     /*
-    Assignment - Arrays
-    
-    1. In proiectul de Calculator, in clasa Calculator, supraincarcati toate metodele conform principiului polimorfismului. Creati cel putin cate doua metode polimorfe pentru fiecare metoda pe care o aveti in clasa.
+    Assignment - Lists
 
-    Apelati metodele in Main pentru a testa daca functioneaza.
+    Rezolvati urmatoarele exercitii:
 
-    2.  In clasa LogicalOp, creati o metoda care sa scrie pe un array de 100 de pozitii, valorile de la 1 la 100. Sa se afiseze progresul in consola pe tot parcursul. Apelati metoda in main() pentru a verifica daca functioneaza.
-
-    3. Creati o metoda care primeasca un parametru de tip array de numere intregi gol, si sa il returneze populat cu toate valorile pare de la 1 la 100. Apelati metoda in main() pentru a verifica daca functioneaza. Atentie, metoda returneaza un array, deci acesta va trebui surprins si afisat folosind o bucla.
-
-    4. Creati o metoda care sa primeasca un parametru de tip array de numere, si sa fie populat cu valori. Metoda sa calculeze si sa returneze media numerelor din array. Apelati metoda in main() pentru a verifica daca functioneaza.
-
-    5. Creati o metoda care sa primeasca un parametru de tip array de string-uri, populat cu valori, si un parametru de tip String. Metoda sa verifice daca valoarea string-ului primit se regaseste in array-ul primit, iar daca da sa returneze true iar daca nu, sa returneze false.  Apelati metoda in main() pentru a verifica daca functioneaza.
-
-    6. Creati o metoda care sa primeasca un parametru de tip array de numere, populat cu valori, si un parametru de tip numar. Metoda sa verifice daca numarul primit se afla in array-ul primit, si daca da, atunci sa returneze pozitia pe care se afla numarul.  Apelati metoda in main() pentru a verifica daca functioneaza.
-
-    7. Creati o metoda care sa afiseze urmatoarea grila, folosind un array:
-
-    - - - - - - - - - -
-
-    - - - - - - - - - -
-
-    - - - - - - - - - -
-
-    - - - - - - - - - -
-
-    - - - - - - - - - -
-
-    - - - - - - - - - -
-
-    - - - - - - - - - -
-
-    - - - - - - - - - -
-
-    - - - - - - - - - -
-
-    - - - - - - - - - -
-
-    8. Creati o metoda care sa primeasca un parametru de tip array de numere, populat cu valori, si un parametru de tip numar. Metoda sa verifice daca numarul exista in array, si daca da, sa returneze array-ul primit, fara acel numar. Apelati metoda in main() pentru a verifica daca functioneaza.
-
-    9. Creati o metoda care sa primeasca un array, si sa returneze al doilea cel mai mic numar din array. Apelati metoda in main() pentru a verifica daca functioneaza.
-
-    10. Creati o metoda care sa primeasca doi parametrii: un array populat cu valori, si un array gol. Metoda sa copieze toate valorile din primul array, parcurgandu-l, in cel de-al doilea. Apelati metoda in main() pentru a verifica daca functioneaza.
+    Scrieti o metoda Java, care sa primeasca parametru o Lista, si sa afiseze, pe rand, toate valorile din lista, fiecare pe rand nou.
+    Scrieti o metoda Java, care sa primeasca doi parametrii: un parametru sa fie o lista de numere, si celalalt un numar (real sau intreg). Metoda sa adauge numarul primit ca si parametru la final de lista.
+    Scrieti o metoda Java, care sa primeasca doi parametrii: un parametru de tip Lista, iar celalalt un numar intreg. Sa se parcurga lista si sa afiseze, pe rand, toate valorile din lista, fiecare pe rand nou, pornind de la numarul intreg primit ca si parametru.
+    Scrieti o metoda Java, care sa primeasca parametru o Lista, si sa afiseze, pe rand, toate valorile din lista, dar invers(de la capat la inceput).
+    Scrieti o metoda Java, care sa primeasca trei parametrii: unul de tip Lista de String-uri, unul de tip intreg, si unul de tip String. Metoda sa adauge parametrul de tip String in lista primita, iar parametrul de tip intreg reprezinta pozitia la care sa fie pus acel String.
+    Scrieti o metoda Java, care sa primeasca doi parametrii. Primul dintre ei va fi o Lista, iar metoda sa ia al doilea parametru si sa il adauge pe prima pozitie din lista.
+    Scrieti o metoda Java care sa primeasca parametru o Lista, si sa afiseze ce valori are lista, si ce pe ce pozitie. (Ex: “Pe pozitia 1 valoare este 4”).
+    Scrieti o metoda Java care sa primeasca o Lista si sa returneze cel mai mare numar din ea.
      */
     public static void main(String[] args) {
-        Calculator calculator = new Calculator();
-//        1.
-        System.out.println(calculator.add(2, 3));
-        System.out.println(calculator.add(3, 4, 5));
-        System.out.println(calculator.subtract(10, 8));
-        System.out.println(calculator.subtract(14, 21, -7));
-        System.out.println(calculator.multiply(2, 3));
-        System.out.println(calculator.multiply(3, 4, 5));
-        System.out.println(calculator.divide(10, 8));
-        System.out.println(calculator.divide(14, 21, -7));
-        System.out.println(calculator.mean(10, 8));
-        System.out.println(calculator.mean(14, 21, -7));
-        System.out.println(calculator.remainder(2, 3));
-        System.out.println(calculator.remainder(3, 4, 5));
-//        2.
         LogicalOp op = new LogicalOp();
-        op.initialiseArray();
-//        3.
-        int[] array = new int[50];
-        array = op.initialiseEvenArray(array);
-        Arrays.stream(array).forEach(el -> System.out.printf("%d ", el));
-        System.out.println();
-//        4.
-        double[] doubles = new double[42894];
-        System.out.println(op.initialiseRandom(doubles));
-//        5.
-        String[] strings = {"hello", "world", "bye", "!"};
-        System.out.println(op.isInArray(strings, "world"));
-        System.out.println(op.isInArray(strings, "bey"));
-//        6.
-        doubles = new double[]{0, -1, 5.4, 8.2};
-        System.out.println(op.positionOf(doubles, 5.4));
-        System.out.println(op.positionOf(doubles, 8.20001));
-//        7.
-        op.displayDashPattern();
-//        8.
-        doubles = new double[]{1, 2, 4.32, 42.3, 423.13};
-        System.out.println(Arrays.stream(op.remove(doubles, 4.32)).mapToObj(Double::toString).collect(Collectors.joining(", ")));
-
-        doubles = new double[]{212.321, 31.942, 457, 503};
-        System.out.println(Arrays.toString(op.remove(doubles, 54)));
-//        9.
-        doubles = new double[]{212.321, 31.942, 457, 503};
-        System.out.println(op.secondSmallest(doubles));
-
-        doubles = new double[]{};
-        System.out.println(op.secondSmallest(doubles));
-
-        doubles = new double[]{1, 1, 1, 1, 1, 1, 1};
-        System.out.println(op.secondSmallest(doubles));
-
-//        10.
-        doubles = new double[]{212.321, 31.942, 457, 503};
-        double[] doubles1 = new double[doubles.length];
-        System.out.println(Arrays.stream(op.copy(doubles, doubles1)).mapToObj(Double::toString).collect(Collectors.joining(", ")));
+//        Lists 1
+        final List<? extends String> strings = List.of("New York", "London", "Beijing", "Rome");
+        op.displayList(strings);
+//        Lists 2
+        final List<Integer> integers = new ArrayList<>(List.of(1, 3, 5, 2, 9, 7, 4));
+        op.append(integers, 72);
+        System.out.println(integers.stream().map(Object::toString).collect(Collectors.joining(", ")));
+//        List 3
+        op.displayFrom(integers, 2);
+        op.displayFrom(integers, 55);
+//        List 4
+        op.displayReverse(new ArrayList<>(strings));
+//        List 5
+        List<String> cities = new ArrayList<>(strings);
+        op.insertAt(cities, 3, "Cluj-Napoca");
+        System.out.println(String.join(", ", cities));
+//        List 6
+        op.addAtBeginning(cities, "Bucharest");
+        System.out.println(String.join(", ", cities));
+//        List 7
+        op.detailedDisplay(cities);
+        op.detailedDisplay(integers);
+//        List 8
+        System.out.println(op.max(integers));
     }
 }

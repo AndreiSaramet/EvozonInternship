@@ -1,4 +1,7 @@
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class LogicalOp {
     //    If-else 3
@@ -357,5 +360,55 @@ public class LogicalOp {
             array2[index] = array1[index];
         }
         return array2;
+    }
+
+    //    Lists 1
+    public void displayList(final List<?> list) {
+        list.forEach(System.out::println);
+    }
+
+    //    Lists 2
+    public void append(final List<Integer> list, final Integer number) {
+        list.add(number);
+    }
+
+    //    Lists 3
+    public void displayFrom(final List<? extends Integer> integers, Integer number) {
+        int position = integers.indexOf(number);
+        if (position == -1) {
+            System.out.println("The number is not in the given list");
+            return;
+        }
+        integers.stream()
+                .skip(position)
+                .forEach(System.out::println);
+    }
+
+    //    Lists 4
+    public void displayReverse(final List<?> list) {
+        Collections.reverse(list);
+        list.forEach(System.out::println);
+    }
+
+    //    Lists 5
+    public void insertAt(final List<String> strings, final int position, final String string) {
+        strings.add(position, string);
+    }
+
+    //    Lists 6
+    public void addAtBeginning(final List<String> list, String obj) {
+        list.add(0, obj);
+    }
+
+    //    Lists 7
+    public void detailedDisplay(final List<?> list) {
+        for (int index = 0; index < list.size(); index++) {
+            System.out.printf("On position %d there is the value %s\n", index, list.get(index).toString());
+        }
+    }
+
+    //    Lists 8
+    public Number max(final List<? extends Integer> numbers) {
+        return numbers.stream().max(Comparator.<Integer>naturalOrder()).orElseThrow(() -> new RuntimeException("The list is empty"));
     }
 }
