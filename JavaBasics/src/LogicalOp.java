@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class LogicalOp {
     //    If-else 3
@@ -410,5 +407,52 @@ public class LogicalOp {
     //    Lists 8
     public Number max(final List<? extends Integer> numbers) {
         return numbers.stream().max(Comparator.<Integer>naturalOrder()).orElseThrow(() -> new RuntimeException("The list is empty"));
+    }
+
+    //    Optional Lists 1
+    public void swap(final List<String> strings, String string1, String string2) {
+        Collections.swap(strings, strings.indexOf(string1), strings.indexOf(string2));
+    }
+
+    //    Optional Lists 2
+    public List<? extends Integer> onlyEvens(final List<? extends Integer> integers) {
+        return integers.stream().filter(el -> el % 2 == 0).toList();
+    }
+
+    public List<? extends Integer> merge(final List<? extends Integer> list1, final List<? extends Integer> list2) {
+        final List<Integer> result = new ArrayList<>();
+        int index1, index2;
+        index1 = index2 = 0;
+        while (index1 < list1.size() && index2 < list2.size()) {
+            if (list1.get(index1) < list2.get(index2)) {
+                result.add(list1.get(index1));
+                index1++;
+            } else {
+                result.add(list2.get(index2));
+                index2++;
+            }
+        }
+        while (index1 < list1.size()) {
+            result.add(list1.get(index1));
+            index1++;
+        }
+        while (index2 < list2.size()) {
+            result.add(list2.get(index2));
+            index2++;
+        }
+        return result;
+    }
+
+    //    Optional Lists 3
+    public List<? extends Integer> mergeSort(final List<? extends Integer> list) {
+        if (list.size() == 1) {
+            return list;
+        }
+        List<? extends Integer> left = list.subList(0, list.size() / 2);
+        List<? extends Integer> right = list.subList(list.size() / 2, list.size());
+        left = mergeSort(left);
+        right = mergeSort(right);
+        return merge(left, right);
+
     }
 }
