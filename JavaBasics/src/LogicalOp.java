@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class LogicalOp {
     //    If-else 3
     public int checkBiggerNumber(final int a, final int b) {
@@ -248,5 +250,112 @@ public class LogicalOp {
             }
             System.out.println(line);
         }
+    }
+
+    //    Arrays 2
+    public void initialiseArray() {
+        final int[] array = new int[100];
+        for (int i = 1; i <= 100; i++) {
+            System.out.printf("At position %d is written %d\n", i - 1, i);
+            array[i - 1] = i;
+        }
+    }
+
+    //    Arrays 3
+    public int[] initialiseEvenArray(final int[] array) {
+        for (int i = 2; i <= 100; i++) {
+            array[i / 2 - 1] = i;
+        }
+        return array;
+    }
+
+    //    Arrays 4
+    public double initialiseRandom(final double[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (Math.random() * 100000) % 1000;
+        }
+        double mean = 0;
+        for (final double el : array) {
+            mean += el;
+        }
+        return mean / array.length;
+    }
+
+    //    Arrays 5
+    public boolean isInArray(final String[] strings, final String string) {
+        for (final String el : strings) {
+            if (string.equals(el)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //    Arrays 6
+    public Integer positionOf(final double[] doubles, final double number) {
+        for (int index = 0; index < doubles.length; index++) {
+            if (number == doubles[index]) {
+                return index;
+            }
+        }
+        System.out.println("The element was not found!");
+        return null;
+    }
+
+    //    Arrays 7
+    public void displayDashPattern() {
+        int size = 10;
+        final char[] line = new char[size];
+        Arrays.fill(line, '-');
+        for (; size > 0; size--) {
+            System.out.println(line);
+        }
+    }
+
+    //    Arrays 8
+    public double[] remove(final double[] doubles, final double number) {
+        int index;
+        for (index = 0; index < doubles.length; index++) {
+            if (doubles[index] == number) {
+                break;
+            }
+        }
+        if (index == doubles.length) {
+            System.out.println("The element was not found, therefore, not removed");
+            return null;
+        }
+        return Arrays.stream(doubles)
+                .dropWhile(el -> el == number)
+                .toArray();
+
+    }
+
+    //    Array 9
+    public Double secondSmallest(final double[] doubles) {
+        if (doubles.length == 0) {
+            System.out.println("The array is empty");
+            return null;
+        }
+        double min, min1;
+        min = min1 = doubles[0];
+        for (final double el : doubles) {
+            if (el < min) {
+                min1 = min;
+                min = el;
+            }
+        }
+        if (min == min1) {
+            System.out.println("There is only one element in the whole array");
+            return null;
+        }
+        return min1;
+    }
+
+    //    Array 10
+    public double[] copy(final double[] array1, final double[] array2) {
+        for (int index = 0; index < array1.length; index++) {
+            array2[index] = array1[index];
+        }
+        return array2;
     }
 }
