@@ -184,7 +184,7 @@ public class LogicalOp {
     }
 
     //    For-loops 4
-    public void countIncreseFromTo(int start, int end) {
+    public void countIncreaseFromTo(int start, int end) {
         if (end < start) {
             final int cpy = start;
             start = end;
@@ -249,6 +249,170 @@ public class LogicalOp {
                 line.append("*");
             }
             System.out.println(line);
+        }
+    }
+
+    //    While loops 1
+    public void countUp1(int number) {
+        if (number <= 100) {
+            while (number <= 100) {
+                System.out.printf("%d ", number);
+                number++;
+            }
+        } else {
+            while (number >= 100) {
+                System.out.printf("%d ", number);
+                number--;
+            }
+        }
+        System.out.println();
+    }
+
+    //   While loops 2
+    public void countDown1(int number) {
+        if (number >= -100) {
+            while (number >= -100) {
+                System.out.printf("%d ", number);
+                number--;
+            }
+        } else {
+            while (number <= -100) {
+                System.out.printf("%d ", number);
+                number++;
+            }
+        }
+        System.out.println();
+    }
+
+    //    While loops 3
+    public void countFromTo1(int start, int end) {
+        if (start <= end) {
+            while (start <= end) {
+                System.out.printf("%d ", start);
+                start++;
+            }
+        } else {
+            while (start >= end) {
+                System.out.printf("%d ", start);
+                start--;
+            }
+        }
+        System.out.println();
+    }
+
+    //    While loops 4
+    public void countIncreaseFromTo1(int start, int end) {
+        if (end < start) {
+            final int cpy = start;
+            start = end;
+            end = cpy;
+        }
+        while (start <= end) {
+            System.out.printf("%d ", start);
+            start++;
+        }
+        System.out.println();
+    }
+
+    //    While loops 5
+    public void displayEven1To1001() {
+        int start = 2;
+        while (start <= 100) {
+            System.out.printf("%d ", start);
+            start += 2;
+        }
+        System.out.println();
+    }
+
+    //    While loops 6
+    public void displayOdd1To1001() {
+        int start = 1;
+        while (start <= 100) {
+            System.out.printf("%d ", start);
+            start += 2;
+        }
+        System.out.println();
+    }
+
+    //    While loops 7
+    public void from111to8899() {
+        int start = 111;
+        int end = 8899;
+        int count = 0;
+        int sum = 0;
+        for (; start <= end; start++) {
+            sum += start;
+            count++;
+        }
+        System.out.printf("Sum of numbers from 111 to 8899 is %d\n", sum);
+        System.out.printf("Mean of numbers from 111 to 8899 is %f\n", (double) sum / count);
+    }
+
+    //    While loops 8
+    public void multiples7(final int start, final int end) {
+        int sum = 0;
+        int count = 0;
+        int startC = start;
+        while (startC <= end && startC % 7 != 0) {
+            startC++;
+        }
+        while (startC <= end) {
+            sum += startC;
+            count++;
+            startC += 7;
+        }
+        System.out.printf("The mean of multiples of 7 from %d to %d is %f\n", start, end, count != 0 ? (double) sum / count : 0);
+    }
+
+    //    While loops 9
+    public void fibonacci() {
+        int f1 = 0;
+        int f2 = 1;
+        System.out.printf("%d, %d", f1, f2);
+        int f3;
+        int count = 18;
+        while (count > 0) {
+            f3 = f1 + f2;
+            f1 = f2;
+            f2 = f3;
+            System.out.printf(", %d", f3);
+            count--;
+        }
+        System.out.println();
+    }
+
+//    While loops 10
+
+    public void cozaLozaWoza() {
+        int start = 1;
+        int end = 110;
+        int count = 0;
+        while (start <= end) {
+            String toPrint;
+            if (start % 105 == 0) {
+                toPrint = "CozaLozaWoza";
+            } else if (start % 15 == 0) {
+                toPrint = "CozaLoza";
+            } else if (start % 21 == 0) {
+                toPrint = "CozaWoza";
+            } else if (start % 35 == 0) {
+                toPrint = "WozaLoza";
+            } else if (start % 3 == 0) {
+                toPrint = "Coza";
+            } else if (start % 5 == 0) {
+                toPrint = "Loza";
+            } else if (start % 7 == 0) {
+                toPrint = "Woza";
+            } else {
+                toPrint = Integer.toString(start);
+            }
+            System.out.printf("%s ", toPrint);
+            count++;
+            if (count == 11) {
+                System.out.println();
+                count = 0;
+            }
+            start++;
         }
     }
 
