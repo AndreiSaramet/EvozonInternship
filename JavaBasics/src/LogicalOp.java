@@ -523,6 +523,122 @@ public class LogicalOp {
         return array2;
     }
 
+//    Optional Arrays 1
+//    Identical with Arrays 9
+
+    //    Optional Arrays 2
+    public void insertAt(final String[] strings, final int position, final String string) {
+        for (int index = strings.length - 1; index > position; index--) {
+            strings[index] = strings[index - 1];
+        }
+        strings[position] = string;
+    }
+
+    //    Optional Arrays 3
+    public void findMinMax(final double[] doubles) {
+        if (doubles.length == 0) {
+            System.out.println("The array is empty");
+        }
+        double min, max;
+        min = max = doubles[0];
+        for (final double el : doubles) {
+            if (min > el) {
+                min = el;
+            }
+            if (max < el) {
+                max = el;
+            }
+        }
+        System.out.printf("The minimum of the array is %f and the maximum is %f\n", min, max);
+    }
+
+    //    Optional Arrays 4
+    public void reverse(final String[] strings) {
+        for (int index = 0; index <= strings.length / 2; index++) {
+            final String copy = strings[index];
+            strings[index] = strings[strings.length - index - 1];
+            strings[strings.length - index - 1] = copy;
+        }
+    }
+
+    //    Optional Arrays 5
+    public String[] findDuplicates(final String[] strings) {
+//        these two arrays would simulate a map used for storing the frequency of each element of the array
+        final String[] elements = new String[strings.length];
+        final int[] frequencies = new int[strings.length];
+        int size = 0;
+        for (final String el : strings) {
+            int index;
+            for (index = 0; index < size; index++) {
+                if (el.equals(elements[index])) {
+                    frequencies[index]++;
+                    break;
+                }
+            }
+            if (index == size) {
+                elements[size] = el;
+                frequencies[size]++;
+                size++;
+            }
+        }
+        final String[] duplicates = new String[size];
+        int position = 0;
+        for (int index = 0; index < size; index++) {
+            if (frequencies[index] > 1) {
+                duplicates[position++] = elements[index];
+            }
+        }
+        return duplicates;
+    }
+
+    //    Optional Arrays 6
+    public String[] intersection(final String[] strings1, final String[] strings2) {
+        final String[] common = new String[Math.min(strings1.length, strings2.length)];
+        int size = 0;
+        for (final String el1 : strings1) {
+            for (final String el2 : strings2) {
+                if (el2.equals(el1)) {
+                    common[size++] = el1;
+                    break;
+                }
+            }
+        }
+        return common;
+    }
+
+    //    Optional Arrays 7
+    public int[] merge(final int[] ints1, final int[] ints2) {
+        final int[] result = new int[ints1.length + ints2.length];
+        int size = 0;
+        int index1, index2;
+        index1 = index2 = 0;
+        while (index1 < ints1.length && index2 < ints2.length) {
+            if (ints1[index1] < ints2[index2]) {
+                result[size++] = ints1[index1++];
+            } else {
+                result[size++] = ints2[index2++];
+            }
+        }
+        while (index1 < ints1.length) {
+            result[size++] = ints1[index1++];
+        }
+        while (index2 < ints2.length) {
+            result[size++] = ints2[index2++];
+        }
+        return result;
+    }
+
+    public int[] mergeSort(final int[] ints) {
+        if (ints.length == 1) {
+            return ints;
+        }
+        int[] left = Arrays.copyOf(ints, ints.length / 2);
+        int[] right = Arrays.copyOfRange(ints, ints.length / 2, ints.length);
+        left = mergeSort(left);
+        right = mergeSort(right);
+        return merge(left, right);
+    }
+
     //    Lists 1
     public void displayList(final List<?> list) {
         list.forEach(System.out::println);
@@ -617,6 +733,5 @@ public class LogicalOp {
         left = mergeSort(left);
         right = mergeSort(right);
         return merge(left, right);
-
     }
 }
