@@ -14,8 +14,6 @@ public class DogFood extends AnimalFood {
         this.meatType = meatType;
     }
 
-
-
     public String getType() {
         return type;
     }

@@ -1,7 +1,6 @@
 package food;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public abstract class AnimalFood {
     private final String name;
@@ -13,6 +12,12 @@ public abstract class AnimalFood {
     private LocalDate expirationDate;
 
     private Integer stock;
+
+    private NutrientLevel proteinLevel;
+
+    private NutrientLevel fiberLevel;
+
+    private NutrientLevel vitaminLevel;
 
     public AnimalFood(String name, Double price, Double quantity, LocalDate expirationDate, Integer stock) {
         this.name = name;
@@ -58,17 +63,28 @@ public abstract class AnimalFood {
         this.stock = stock;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AnimalFood that = (AnimalFood) o;
-        return Objects.equals(name, that.name) && Objects.equals(price, that.price) && Objects.equals(quantity, that.quantity) && Objects.equals(expirationDate, that.expirationDate) && Objects.equals(stock, that.stock);
+    public NutrientLevel getProteinLevel() {
+        return proteinLevel;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, price, quantity, expirationDate, stock);
+    public void setProteinLevel(NutrientLevel proteinLevel) {
+        this.proteinLevel = proteinLevel;
+    }
+
+    public NutrientLevel getFiberLevel() {
+        return fiberLevel;
+    }
+
+    public void setFiberLevel(NutrientLevel fiberLevel) {
+        this.fiberLevel = fiberLevel;
+    }
+
+    public NutrientLevel getVitaminLevel() {
+        return vitaminLevel;
+    }
+
+    public void setVitaminLevel(NutrientLevel vitaminLevel) {
+        this.vitaminLevel = vitaminLevel;
     }
 }
 

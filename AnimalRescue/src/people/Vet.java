@@ -1,14 +1,15 @@
 package people;
 
-import java.util.Objects;
+import java.util.List;
 
 public class Vet extends MedicalStaff {
-
+    private Nurse nurse;
     private String specialisation;
 
-    public Vet(String name, Integer workExperience, String specialisation) {
-        super(name, workExperience);
+    public Vet(final String name, final String specialisation, final Nurse nurse) {
+        super(name);
         this.specialisation = specialisation;
+        this.nurse = nurse;
     }
 
 
@@ -20,17 +21,15 @@ public class Vet extends MedicalStaff {
         this.specialisation = specialisation;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Vet vet = (Vet) o;
-        return Objects.equals(specialisation, vet.specialisation);
+    public Nurse getNurse() {
+        return nurse;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), specialisation);
+    public void setNurse(Nurse nurse) {
+        this.nurse = nurse;
+    }
+
+    public List<String> treatedDog() {
+        return List.of("vaccinated", "dewormed");
     }
 }

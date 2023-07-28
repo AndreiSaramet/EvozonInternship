@@ -1,17 +1,17 @@
 package animals;
 
-import animals.Dog;
 import food.AnimalFood;
+import utils.Gender;
 
 public class LargeDog extends Dog {
-    public LargeDog(String name, Integer age, Double weight, String gender, String colour, String breed) {
-        super(name, age, weight, gender, colour, breed);
+    public LargeDog(final Gender gender, final String colour, final DogBreed breed) {
+        super(gender, colour, breed);
     }
 
     @Override
     public void eat(AnimalFood food) {
         super.eat(food);
-        System.out.println("An I am eating a lot of it");
+//        System.out.println("An I am eating a lot of it");
     }
 
     @Override

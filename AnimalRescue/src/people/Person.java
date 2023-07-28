@@ -1,38 +1,19 @@
 package people;
 
-import java.util.Objects;
+import utils.Gender;
 
-public abstract class Person {
-    private final String name;
+public interface Person {
+    Integer getAge();
 
-    private Integer age;
+    void setAge(final Integer age);
 
-    public Person(final String name) {
-        this.name = name;
-    }
+    String getName();
 
-    public Integer getAge() {
-        return age;
-    }
+    HairColour getHairColour();
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+    void setHairColour(final HairColour hairColour);
 
-    public String getName() {
-        return name;
-    }
+    void setHairColour(final String hairColour);
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Objects.equals(name, person.name) && Objects.equals(age, person.age);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, age);
-    }
+    Gender getGender();
 }

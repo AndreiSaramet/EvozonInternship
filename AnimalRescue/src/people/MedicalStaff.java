@@ -1,15 +1,12 @@
 package people;
 
-public abstract class MedicalStaff extends Person {
+import utils.Gender;
+
+public abstract class MedicalStaff extends AbstractPerson {
     private Integer workExperience;
 
-    public MedicalStaff(String name, Integer workExperience) {
-        super(name);
-        this.workExperience = workExperience;
-    }
-
     public MedicalStaff(String name) {
-        super(name);
+        super(name, Gender.MALE);
     }
 
     public Integer getWorkExperience() {

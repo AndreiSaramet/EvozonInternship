@@ -1,35 +1,23 @@
 package people;
 
-import java.util.Objects;
+import java.util.List;
 
 public class Nurse extends MedicalStaff {
+    private KindLevel kindLevel;
 
-    private Vet vet;
-
-    public Nurse(String name, Vet vet) {
+    public Nurse(String name) {
         super(name);
-        this.vet = vet;
     }
 
-    public Vet getVet() {
-        return vet;
+    public KindLevel getKindLevel() {
+        return kindLevel;
     }
 
-    public void setVet(Vet vet) {
-        this.vet = vet;
+    public void setKindLevel(KindLevel kindLevel) {
+        this.kindLevel = kindLevel;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Nurse nurse = (Nurse) o;
-        return Objects.equals(vet, nurse.vet);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), vet);
+    public List<String> nurseDog() {
+        return List.of("pet", "pamper");
     }
 }

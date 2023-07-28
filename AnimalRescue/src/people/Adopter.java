@@ -1,15 +1,15 @@
 package people;
 
-import java.util.Objects;
+import utils.Gender;
 
-public class Adopter extends Person {
+public class Adopter implements Person {
 
+    private final Person person;
     private Double amountOfMoney;
 
 
-    public Adopter(String name, Double amountOfMoney) {
-        super(name);
-        this.amountOfMoney = amountOfMoney;
+    public Adopter(Person person) {
+        this.person = person;
     }
 
     public Double getAmountOfMoney() {
@@ -21,17 +21,43 @@ public class Adopter extends Person {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Adopter adopter = (Adopter) o;
-        return Objects.equals(amountOfMoney, adopter.amountOfMoney);
+    public Integer getAge() {
+        return person.getAge();
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), amountOfMoney);
+    public void setAge(Integer age) {
+        person.setAge(age);
+    }
+
+    @Override
+    public String getName() {
+        return person.getName();
+    }
+
+    @Override
+    public HairColour getHairColour() {
+        return person.getHairColour();
+    }
+
+    @Override
+    public void setHairColour(HairColour hairColour) {
+        person.setHairColour(hairColour);
+    }
+
+    @Override
+    public void setHairColour(String hairColour) {
+        person.setHairColour(hairColour);
+    }
+
+    @Override
+    public Gender getGender() {
+        return this.person.getGender();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s and wanted to adopt an animal", this.person.toString());
     }
 }
 
