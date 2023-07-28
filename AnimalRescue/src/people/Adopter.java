@@ -1,17 +1,15 @@
+package people;
+
 import java.util.Objects;
 
-public class Adopter {
-    private final String name;
+public class Adopter extends Person {
 
     private Double amountOfMoney;
 
-    public Adopter(String name, Double amountOfMoney) {
-        this.name = name;
-        this.amountOfMoney = amountOfMoney;
-    }
 
-    public String getName() {
-        return name;
+    public Adopter(String name, Double amountOfMoney) {
+        super(name);
+        this.amountOfMoney = amountOfMoney;
     }
 
     public Double getAmountOfMoney() {
@@ -24,17 +22,16 @@ public class Adopter {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Adopter adopter = (Adopter) o;
-        return Objects.equals(name, adopter.name) && Objects.equals(amountOfMoney, adopter.amountOfMoney);
+        return Objects.equals(amountOfMoney, adopter.amountOfMoney);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, amountOfMoney);
+        return Objects.hash(super.hashCode(), amountOfMoney);
     }
 }
 

@@ -1,3 +1,7 @@
+import animals.Animal;
+import people.Adopter;
+import people.Vet;
+
 import java.util.Objects;
 
 public class Game {

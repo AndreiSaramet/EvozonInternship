@@ -1,6 +1,8 @@
+package people;
+
 import java.util.Objects;
 
-public class Person {
+public abstract class Person {
     private final String name;
 
     private Integer age;

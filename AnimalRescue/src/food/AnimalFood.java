@@ -1,7 +1,9 @@
+package food;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class DogFood {
+public abstract class AnimalFood {
     private final String name;
 
     private Double price;
@@ -12,7 +14,7 @@ public class DogFood {
 
     private Integer stock;
 
-    public DogFood(String name, Double price, Double quantity, LocalDate expirationDate, Integer stock) {
+    public AnimalFood(String name, Double price, Double quantity, LocalDate expirationDate, Integer stock) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -58,12 +60,10 @@ public class DogFood {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        DogFood dogFood = (DogFood) o;
-        return Objects.equals(name, dogFood.name) && Objects.equals(price, dogFood.price) && Objects.equals(quantity, dogFood.quantity) && Objects.equals(expirationDate, dogFood.expirationDate) && Objects.equals(stock, dogFood.stock);
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AnimalFood that = (AnimalFood) o;
+        return Objects.equals(name, that.name) && Objects.equals(price, that.price) && Objects.equals(quantity, that.quantity) && Objects.equals(expirationDate, that.expirationDate) && Objects.equals(stock, that.stock);
     }
 
     @Override
@@ -71,3 +71,4 @@ public class DogFood {
         return Objects.hash(name, price, quantity, expirationDate, stock);
     }
 }
+
