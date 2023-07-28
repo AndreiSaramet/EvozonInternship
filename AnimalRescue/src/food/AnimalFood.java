@@ -1,6 +1,8 @@
 package food;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public abstract class AnimalFood {
     private final String name;
@@ -13,11 +15,7 @@ public abstract class AnimalFood {
 
     private Integer stock;
 
-    private NutrientLevel proteinLevel;
-
-    private NutrientLevel fiberLevel;
-
-    private NutrientLevel vitaminLevel;
+    private NutrientLevel caloriesLevel;
 
     public AnimalFood(String name, Double price, Double quantity, LocalDate expirationDate, Integer stock) {
         this.name = name;
@@ -63,28 +61,12 @@ public abstract class AnimalFood {
         this.stock = stock;
     }
 
-    public NutrientLevel getProteinLevel() {
-        return proteinLevel;
+    public String getCaloriesLevel() {
+        return String.join(" ", Arrays.asList(caloriesLevel.toString().toLowerCase().split("_")));
     }
 
-    public void setProteinLevel(NutrientLevel proteinLevel) {
-        this.proteinLevel = proteinLevel;
-    }
-
-    public NutrientLevel getFiberLevel() {
-        return fiberLevel;
-    }
-
-    public void setFiberLevel(NutrientLevel fiberLevel) {
-        this.fiberLevel = fiberLevel;
-    }
-
-    public NutrientLevel getVitaminLevel() {
-        return vitaminLevel;
-    }
-
-    public void setVitaminLevel(NutrientLevel vitaminLevel) {
-        this.vitaminLevel = vitaminLevel;
+    public void setCaloriesLevel(NutrientLevel caloriesLevel) {
+        this.caloriesLevel = caloriesLevel;
     }
 }
 

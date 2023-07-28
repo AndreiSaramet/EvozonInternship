@@ -21,18 +21,4 @@ public class DogFood extends AnimalFood {
     public String getMeatType() {
         return meatType;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        DogFood dogFood = (DogFood) o;
-        return Objects.equals(type, dogFood.type) && Objects.equals(meatType, dogFood.meatType);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), type, meatType);
-    }
 }

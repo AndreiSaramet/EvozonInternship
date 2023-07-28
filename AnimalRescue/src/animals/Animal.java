@@ -205,7 +205,7 @@ public abstract class Animal {
     }
 
     private void digest(AnimalFood food) {
-
+        this.weight += food.getQuantity();
     }
 
     @Override
