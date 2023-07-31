@@ -10,15 +10,18 @@ import people.Vet;
 import java.time.LocalDate;
 
 public class Game {
+    public static Game adopt(final Adopter adopter, final Animal animal, final Vet vet) {
+        return new Game(adopter, animal, vet);
+    }
     private final Adopter adopter;
 
-    private final Animal dog;
+    private final Animal animal;
 
     private final Vet vet;
 
-    public Game(final Adopter adopter, final Animal dog, final Vet vet) {
+    private Game(final Adopter adopter, final Animal dog, final Vet vet) {
         this.adopter = adopter;
-        this.dog = dog;
+        this.animal = dog;
         this.vet = vet;
     }
 
@@ -26,8 +29,8 @@ public class Game {
         return adopter;
     }
 
-    public Animal getDog() {
-        return dog;
+    public Animal getAnimal() {
+        return animal;
     }
 
     public Vet getVet() {
@@ -39,8 +42,8 @@ public class Game {
     }
 
 
-    public void run() {
-        final String animalType = dog.getClass().getSimpleName();
+    public void tellStory() {
+        final String animalType = animal.getClass().getSimpleName();
         final DogFood food = new DogFood("pedigree", 10.0, 650.0, LocalDate.of(2025, 11, 29), 10, "wet", "beef");
 
         background();
@@ -61,7 +64,7 @@ public class Game {
 
     private void changeFood(DogFood food) {
         final SpecialFood specialFood = new SpecialFood("purina", 98.23, 412.31, LocalDate.of(2024, 12, 14), 3, "dry", "fish");
-        System.out.printf("After the %s fed the dog with %s food for some time, he got %s, so she changed to %s for dogs which was %s in calories.\n", this.adopter.getNoun(), food.getType(), dog.getWeight() >= 26 ? "fat" : "ok", specialFood.getClass().getSimpleName().toLowerCase(), specialFood.getCaloriesLevel());
+        System.out.printf("After the %s fed the dog with %s food for some time, he got %s, so she changed to %s for dogs which was %s in calories.\n", this.adopter.getNoun(), food.getType(), animal.getWeight() >= 26 ? "fat" : "ok", specialFood.getClass().getSimpleName().toLowerCase(), specialFood.getCaloriesLevel());
     }
 
     private void visitVet() {
@@ -70,31 +73,31 @@ public class Game {
     }
 
     private void play() {
-        dog.play();
-        dog.play();
-        dog.play();
-        dog.play();
-        System.out.printf("The %s started to play with the dog, and as she was doing it more often, the dog started to feel very %s.\n", this.adopter.getNoun(), dog.getHealthStatus());
+        animal.play();
+        animal.play();
+        animal.play();
+        animal.play();
+        System.out.printf("The %s started to play with the dog, and as she was doing it more often, the dog started to feel very %s.\n", this.adopter.getNoun(), animal.getHealthStatus());
     }
 
     private void getBetter(String animalType) {
-        System.out.printf("In time, the %s, aged %d, has gained in weight, and started to feel %s.\n", animalType, dog.getAge(), dog.getVibe());
+        System.out.printf("In time, the %s, aged %d, has gained in weight, and started to feel %s.\n", animalType, animal.getAge(), animal.getVibe());
     }
 
     private void feed(AnimalFood food) {
-        System.out.printf("As the dog was %s, the %s fed it with %s.\n", dog.getVibe(), this.adopter.getNoun(), food.getClass().getSimpleName());
-        dog.eat(food);
+        System.out.printf("As the dog was %s, the %s fed it with %s.\n", animal.getVibe(), this.adopter.getNoun(), food.getClass().getSimpleName());
+        animal.eat(food);
     }
 
     private void adopt() {
-        System.out.printf(" The %s adopted it and named it %s.\n", this.adopter.getNoun(), dog.getName());
+        System.out.printf(" The %s adopted it and named it %s.\n", this.adopter.getNoun(), animal.getName());
     }
 
     private void dogState(String animalType) {
-        System.out.printf("The %s was %s, %s, and %s.", animalType, dog.getVibe(), dog.getHealthStatus(), dog.getHungerLevel());
+        System.out.printf("The %s was %s, %s, and %s.", animalType, animal.getVibe(), animal.getHealthStatus(), animal.getHungerLevel());
     }
 
     private void fellInLove(String animalType) {
-        System.out.printf("%s fell in love with a %s which was a %s.\n", this.adopter.getPronoun(), animalType, dog.breed());
+        System.out.printf("%s fell in love with a %s which was a %s.\n", this.adopter.getPronoun(), animalType, animal.breed());
     }
 }

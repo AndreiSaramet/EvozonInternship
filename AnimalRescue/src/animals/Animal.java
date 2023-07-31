@@ -150,62 +150,57 @@ public abstract class Animal {
     }
 
     public void play() {
-        this.healthStatus = switch (this.healthStatus) {
-            case ILL -> HealthStatus.IN_POOR_HEALTH;
-            case IN_POOR_HEALTH -> HealthStatus.OK;
-            case OK -> HealthStatus.HEALTHY;
-            case HEALTHY, VERY_HEALTHY -> HealthStatus.VERY_HEALTHY;
-        };
+        this.healthStatus = HealthStatus.improve(this.healthStatus);
     }
 
     public void eat(final AnimalFood food) {
         switch (this.hungerLevel) {
-            case NOT_HUNGRY -> {
-                System.out.printf("%s: I am not hungry\n", this.name);
-            }
             case OK -> {
-                if (food.getQuantity() > 0.250) {
-                    System.out.printf("%s: I am not hungry enough to eat %f of %s\n", this.name, food.getQuantity(), food.getName());
-                } else {
-                    this.hungerLevel = HungerLevel.NOT_HUNGRY;
+                if (food.getQuantity() <= 0.250) {
                     this.vibe = 9;
+                    this.improveHungerLevel();
                     this.digest(food);
                 }
             }
             case HUNGRY -> {
                 if (food.getQuantity() <= 0.250) {
-                    this.hungerLevel = HungerLevel.OK;
+                    this.improveHungerLevel();
                     this.vibe = 7;
                     this.digest(food);
                 } else if (food.getQuantity() <= 0.500) {
-                    this.hungerLevel = HungerLevel.NOT_HUNGRY;
+                    this.improveHungerLevel();
+                    this.improveHungerLevel();
                     this.vibe = 9;
                     this.digest(food);
-                } else {
-                    System.out.printf("%s: I am not very hungry so I cannot eat %f of %s\n", this.name, food.getQuantity(), food.getName());
                 }
             }
             case VERY_HUNGRY -> {
                 if (food.getQuantity() <= 0.250) {
-                    this.hungerLevel = HungerLevel.HUNGRY;
+                    this.improveHungerLevel();
                     this.vibe = 6;
                 } else if (food.getQuantity() <= 0.500) {
-                    this.hungerLevel = HungerLevel.OK;
+                    this.improveHungerLevel();
+                    this.improveHungerLevel();
                     this.vibe = 8;
                 } else {
                     this.vibe = 10;
-                    this.hungerLevel = HungerLevel.NOT_HUNGRY;
+                    this.improveHungerLevel();
+                    this.improveHungerLevel();
+                    this.improveHungerLevel();
                 }
                 this.digest(food);
             }
             default -> {
-                System.out.printf("%s: I don't know if I am hungry or not\n", this.name);
             }
         }
     }
 
     private void digest(AnimalFood food) {
         this.weight += food.getQuantity();
+    }
+
+    private void improveHungerLevel() {
+        this.hungerLevel = HungerLevel.improve(this.hungerLevel);
     }
 
     @Override
