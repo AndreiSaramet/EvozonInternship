@@ -65,6 +65,19 @@ public abstract class AbstractPerson implements Person {
     }
 
     @Override
+    public String getPronoun() {
+        return switch (this.gender) {
+            case FEMALE -> "she";
+            case MALE -> "he";
+        };
+    }
+
+    @Override
+    public String getNoun() {
+        return this.gender.toString().toLowerCase();
+    }
+
+    @Override
     public String toString() {
         return String.format("named %s, aged %d, with %s hair", this.name, this.age, this.hairColour.toString().toLowerCase());
     }

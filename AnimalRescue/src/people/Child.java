@@ -22,13 +22,19 @@ public class Child extends AbstractPerson {
     }
 
     @Override
+    public String getNoun() {
+        return switch (this.gender) {
+            case MALE -> "boy";
+            case FEMALE -> "girl";
+        };
+    }
+
+    @Override
     public String toString() {
         final String loveAnimals = this.loveAnimals ? "loved" : "did not love";
         return switch (this.gender) {
-            case FEMALE ->
-                    String.format("girl %s which %s dogs", super.toString(), loveAnimals);
-            case MALE ->
-                    String.format("boy %s which %s dogs", super.toString(), loveAnimals);
+            case FEMALE -> String.format("girl %s which %s dogs", super.toString(), loveAnimals);
+            case MALE -> String.format("boy %s which %s dogs", super.toString(), loveAnimals);
         };
     }
 }

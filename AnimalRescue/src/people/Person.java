@@ -16,4 +16,8 @@ public interface Person {
     void setHairColour(final String hairColour);
 
     Gender getGender();
+
+    String getPronoun();
+
+    String getNoun();
 }

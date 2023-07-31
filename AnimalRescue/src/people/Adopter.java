@@ -1,6 +1,5 @@
 package people;
 
-import animals.Animal;
 import utils.Gender;
 
 import java.util.List;
@@ -59,21 +58,27 @@ public class Adopter implements Person {
     }
 
     @Override
+    public String getPronoun() {
+        return this.person.getPronoun();
+    }
+
+    @Override
+    public String getNoun() {
+        return this.person.getNoun();
+    }
+
+    @Override
     public String toString() {
         return String.format("%s and wanted to adopt an animal", this.person.toString());
     }
 
     public List<? extends String> getRoutine(final String animalType) {
-        final String childType = switch (this.person.getGender()) {
-            case FEMALE -> "girl";
-            case MALE -> "boy";
-        };
         return List.of(
-                String.format("After wake up, the %s fed the %s with special food.", childType, animalType),
-                String.format("Then the %s walked %s around the block.", childType, animalType),
-                String.format("Back home, the %s was sleeping, while the %s was doing homework.", animalType, childType),
-                String.format("After %s had woken up, the %s was playing with %s with a ball.", animalType, childType, animalType),
-                String.format("In the evening, %s was walking %s outside.", childType, animalType),
+                String.format("After wake up, the %s fed the %s with special food.", this.person.getNoun(), animalType),
+                String.format("Then the %s walked %s around the block.", this.person.getNoun(), animalType),
+                String.format("Back home, the %s was sleeping, while the %s was doing homework.", animalType, this.person.getNoun()),
+                String.format("After %s had woken up, the %s was playing with %s with a ball.", animalType, this.person.getNoun(), animalType),
+                String.format("In the evening, %s was walking %s outside.", this.person.getNoun(), animalType),
                 "After a long day, they both went to sleep.");
     }
 }
