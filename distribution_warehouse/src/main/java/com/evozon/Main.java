@@ -4,6 +4,7 @@ import com.evozon.repository.CSVFileRepository;
 import com.evozon.service.Service;
 
 import java.io.File;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Main {
@@ -18,8 +19,9 @@ public class Main {
         service.setVegetableTypes(List.of("Artichoke", "Asparagus", "Avocado", "Beetroot", "Bell Pepper", "Bok Choy", "Broccoli", "Brussels Sprouts", "Cabbage", "Carrot", "Cauliflower", "Celery", "Chard", "Collard Greens", "Corn", "Cucumber", "Eggplant", "Green Beans", "Kale", "Kohlrabi", "Leek", "Lettuce", "Mushroom", "Okra", "Onion", "Parsnip", "Peas", "Potato", "Pumpkin", "Radicchio", "Radish", "Spinach", "Spring Onion", "Squash", "Sweet Potato", "Tomato", "Turnip", "Watercress", "Yam", "Zucchini"));
         service.setOtherTypes(List.of("Beef Meat", "Pork Meat", "Chicken Meat", "Turkey Meat", "Lamb Meat", "Fish Meat", "Milk ", "Cheese ", "Yogurt", "Butter", "Eggs", "Bread", "Pasta ", "Rice ", "Cereal", "Flour", "Ketchup", "Mustard", "Mayonnaise", "Soy Sauce", "Vinegar", "Salt", "Pepper", "Water", "Juice"));
         service.generateAndSave(200);
-        repository.read().forEach(
-                el -> System.out.println(el.getProductType().getProduct())
-        );
+        service.readAndDisplay(LocalDate.now());
+//        repository.read().forEach(
+//                el -> System.out.println(el.getProductType().getProduct())
+//        );
     }
 }
