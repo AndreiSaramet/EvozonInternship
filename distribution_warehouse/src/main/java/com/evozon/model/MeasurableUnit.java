@@ -12,6 +12,11 @@ public class MeasurableUnit {
         this.mass = Double.valueOf(mass);
     }
 
+    public MeasurableUnit(String unit, Double mass) {
+        this.unit = unit;
+        this.mass = mass;
+    }
+
     public MeasurableUnit(String unit) {
         this.unit = unit;
         this.mass = 1.00;
