@@ -31,7 +31,7 @@ public class CartTest {
         driver.findElement(By.cssSelector("#nav > ol > li.level0.nav-2.parent > ul > li.level1.nav-2-1.first > a")).click();
         driver.findElement(By.cssSelector("body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(2) > div > div.actions > a")).click();
         driver.findElement(By.cssSelector("#swatch27 > span.swatch-label > img")).click();
-        driver.findElement(By.cssSelector("#swatch80 > span.swatch-label")).click();
+        driver.findElement(By.cssSelector("#swatch79 > span.swatch-label")).click();
         driver.findElement(By.cssSelector("#product_addtocart_form > div.product-shop > div.product-options-bottom > div.add-to-cart > div.add-to-cart-buttons > button > span > span")).click();
     }
 }
