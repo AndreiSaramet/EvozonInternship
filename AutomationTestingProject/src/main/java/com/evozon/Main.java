@@ -6,6 +6,8 @@ public class Main {
 //         new RegisterTest().validRegisterTest();
 //        new LoginTest().validLoginTest();
 //        new WishlistTest().validAddToWishlistTest();
-        new CartTest().validAddToCartTest();
+//        new CartTest().validAddToCartTest();
+        new SearchTest().validSearchNoResultTest();
+        new SearchTest().validSearchWithResultsTest();
     }
 }
