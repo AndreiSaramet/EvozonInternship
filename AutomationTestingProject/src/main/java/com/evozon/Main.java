@@ -5,6 +5,7 @@ public class Main {
          System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
 //         new RegisterTest().validRegisterTest();
 //        new LoginTest().validLoginTest();
-        new WishlistTest().validAddToWishlistTest();
+//        new WishlistTest().validAddToWishlistTest();
+        new CartTest().validAddToCartTest();
     }
 }
