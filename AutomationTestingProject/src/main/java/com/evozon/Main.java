@@ -7,7 +7,8 @@ public class Main {
 //        new LoginTest().validLoginTest();
 //        new WishlistTest().validAddToWishlistTest();
 //        new CartTest().validAddToCartTest();
-        new SearchTest().validSearchNoResultTest();
-        new SearchTest().validSearchWithResultsTest();
+//        new SearchTest().validSearchNoResultTest();
+//        new SearchTest().validSearchWithResultsTest();
+        new CheckoutTest().validCheckoutTest();
     }
 }
