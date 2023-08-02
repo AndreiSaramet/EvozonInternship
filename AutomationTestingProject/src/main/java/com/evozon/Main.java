@@ -9,6 +9,12 @@ public class Main {
 //        new CartTest().validAddToCartTest();
 //        new SearchTest().validSearchNoResultTest();
 //        new SearchTest().validSearchWithResultsTest();
-        new CheckoutTest().validCheckoutTest();
+//        new CheckoutTest().validCheckoutTest();
+//        new CompareTest().validAddToCompareTest();
+        final SortTest sortTest = new SortTest();
+        sortTest.sortByPriceAscTest();
+        sortTest.sortByPriceDscTest();
+        sortTest.sortByNameAscTest();
+        sortTest.sortByNameDscTest();
     }
 }
