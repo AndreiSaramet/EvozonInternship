@@ -2,10 +2,7 @@ package com.evozon.service;
 
 import com.evozon.model.MeasurableUnit;
 import com.evozon.model.Package;
-import com.evozon.model.products.Fruit;
-import com.evozon.model.products.Other;
-import com.evozon.model.products.ProductType;
-import com.evozon.model.products.Vegetable;
+import com.evozon.model.products.*;
 import com.evozon.repository.Repository;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,9 +23,13 @@ public class Service {
 
     private List<? extends String> otherTypes;
 
-    List<? extends String> units;
+    private List<? extends String> units;
 
     private List<? extends String> fixedUnits;
+
+    private List<? extends String> nutritionalQualities;
+
+    private List<? extends String> producer;
 
     private Map<? extends Class<?>, ? extends List<? extends String>> types;
 
@@ -174,10 +175,14 @@ public class Service {
     }
 
     private void generateNutritionalQuality(final ProductType productType) {
-        // TODO: 01.08.2023 implement this
+        if (productType instanceof NutritionalProduct product) {
+            product.setNutritionalQuality(this.nutritionalQualities.get(randomObject.nextInt(this.nutritionalQualities.size())));
+        }
     }
 
     private void generateProducer(final ProductType productType) {
-        // TODO: 01.08.2023 implement this
+        if (productType instanceof Vegetable vegetable) {
+            vegetable.setProducer(this.producer.get(randomObject.nextInt(this.producer.size())));
+        }
     }
 }
