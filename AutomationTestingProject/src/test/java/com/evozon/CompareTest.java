@@ -28,12 +28,13 @@ public class CompareTest extends BaseTest {
 
     @Test
     public void validAddToCompareTest() {
-        new Actions(driver).moveToElement(driver.findElement(By.cssSelector("#nav > ol > li.level0.nav-4.parent > a"))).perform();
-        driver.findElement(By.cssSelector("#nav > ol > li.level0.nav-4.parent > ul > li.level1.nav-4-2 > a")).click();
-        driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(2) > div > div.actions > ul > li:nth-child(2) > a")).click();
+        final String productName = "Shea Enfused Hydrating Body Lotion";
+        new Actions(driver).moveToElement(driver.findElement(By.cssSelector(".nav-4 a"))).perform();
+        driver.findElement(By.cssSelector(".nav-4-2 a")).click();
+        driver.findElement(By.cssSelector(String.format("[title=\"%s\"] + div .link-compare", productName))).click();
 
-        final String expected = String.format("The product %s has been added to comparison list.", "Shea Enfused Hydrating Body Lotion");
-        final String actual = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > ul > li > ul > li > span")).getText();
+        final String expected = String.format("The product %s has been added to comparison list.", productName);
+        final String actual = driver.findElement(By.cssSelector(".success-msg span")).getText();
         Assert.assertEquals(expected, actual);
     }
 
