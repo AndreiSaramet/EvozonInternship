@@ -25,7 +25,7 @@ public class CartTest extends BaseTest {
         driver.get("http://qa1magento.dev.evozon.com/");
         driver.findElement(By.cssSelector(".skip-account")).click();
         driver.findElement(By.cssSelector("[title=\"Log In\"]")).click();
-        this.driver.findElement(By.cssSelector("#email")).sendKeys("john@email.com");
+        this.driver.findElement(By.cssSelector("#email")).sendKeys("user@email.com");
         this.driver.findElement(By.cssSelector("#pass")).sendKeys("password");
         this.driver.findElement(By.cssSelector("#send2")).click();
     }
