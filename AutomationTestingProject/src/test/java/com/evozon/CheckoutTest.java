@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,19 +38,18 @@ public class CheckoutTest {
 
     @Test
     public void validCheckoutTest() {
-        driver.findElement(By.cssSelector(".skip-cart")).click();
+        new WebDriverWait(driver, Duration.ofSeconds(120)).until(ExpectedConditions.elementToBeClickable(By.cssSelector(".skip-cart"))).click();
         driver.findElement(By.cssSelector(".checkout-button")).click();
         driver.findElement(By.cssSelector("[id='billing:use_for_shipping_no']")).click();
         driver.findElement(By.cssSelector("#billing-buttons-container button")).click();
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#shipping-buttons-container button"))).click();
-        new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#s_method_freeshipping_freeshipping"))).click();
+        new WebDriverWait(driver, Duration.ofSeconds(120)).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#s_method_freeshipping_freeshipping"))).click();
         driver.findElement(By.cssSelector("#shipping-method-buttons-container button")).click();
-        new WebDriverWait(driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#payment-buttons-container button"))).click();
+        new WebDriverWait(driver, Duration.ofSeconds(120)).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#payment-buttons-container button"))).click();
         new WebDriverWait(driver, Duration.ofSeconds(120)).until(ExpectedConditions.elementToBeClickable(By.cssSelector("#review-buttons-container button"))).click();
 
-        final String expected = "Your order has been received.".toUpperCase();
-        final WebElement el = new WebDriverWait(driver, Duration.ofSeconds(120)).until(drv -> drv.findElement(By.cssSelector(".page-title h1")));
-        final String actual = el.getText();
+        final String expected = "Thank you for your purchase!".toUpperCase();
+        final String actual = new WebDriverWait(driver, Duration.ofSeconds(120)).until(drv -> drv.findElement(By.cssSelector(".sub-title"))).getText();
         Assert.assertEquals(expected, actual);
     }
 
