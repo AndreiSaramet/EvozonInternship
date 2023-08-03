@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 @RunWith(JUnit4.class)
-public class SearchTest {
+public class SearchTest extends BaseTest {
     private WebDriver driver;
 
     @Before

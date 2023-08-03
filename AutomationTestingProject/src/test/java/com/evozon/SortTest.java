@@ -15,7 +15,7 @@ import java.text.ParseException;
 import java.util.Locale;
 import java.util.function.BiPredicate;
 
-public class SortTest {
+public class SortTest extends BaseTest {
     private WebDriver driver;
 
     @Before

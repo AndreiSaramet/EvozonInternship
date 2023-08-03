@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 @RunWith(JUnit4.class)
-public class CheckoutTest {
+public class CheckoutTest extends BaseTest {
     private WebDriver driver;
 
     @Before
