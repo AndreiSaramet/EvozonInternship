@@ -15,7 +15,7 @@ public class LoginTest {
         this.loginDriver(driver, email, password);
 
         final String expected = "Hello, John Smith!";
-        if (driver.findElement(By.cssSelector("body > div > div > div.main-container.col2-left-layout > div > div.col-main > div.my-account > div > div.welcome-msg > p.hello > strong")).getText().equals(expected)) {
+        if (driver.findElement(By.cssSelector(".hello")).getText().equals(expected)) {
             System.out.println("Success");
         } else {
             System.err.println("Fail");
@@ -24,10 +24,10 @@ public class LoginTest {
     }
 
     public void loginDriver(final WebDriver driver, final String email, final String password) {
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
+        driver.findElement(By.cssSelector(".skip-account")).click();
+        driver.findElement(By.cssSelector("[title=\"Log In\"]")).click();
         driver.findElement(By.cssSelector("#email")).sendKeys(email);
         driver.findElement(By.cssSelector("#pass")).sendKeys(password);
-        driver.findElement(By.cssSelector("#send2 > span > span")).click();
+        driver.findElement(By.cssSelector("#send2")).click();
     }
 }
