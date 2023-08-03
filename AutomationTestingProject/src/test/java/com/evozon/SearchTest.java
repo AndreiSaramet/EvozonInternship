@@ -26,7 +26,7 @@ public class SearchTest extends BaseTest {
         this.searchDriver("efygreuifwyugefvg");
 
         final String expected = "You're search returns no results.";
-        final String actual = driver.findElement(By.cssSelector("body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > p")).getText();
+        final String actual = driver.findElement(By.cssSelector(".note-msg")).getText();
         Assert.assertEquals(expected, actual);
     }
 
@@ -35,7 +35,7 @@ public class SearchTest extends BaseTest {
         this.searchDriver("shirt");
 
         final String expected = String.format("%d Item(s)", 5);
-        final String actual = driver.findElement(By.cssSelector("body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > div.toolbar > div.pager > div > p > strong")).getText();
+        final String actual = driver.findElement(By.cssSelector(".category-products > .toolbar .amount")).getText();
         Assert.assertEquals(expected, actual);
     }
 
@@ -45,7 +45,6 @@ public class SearchTest extends BaseTest {
     }
 
     private void searchDriver(String keywords) {
-        driver.findElement(By.cssSelector("#search")).sendKeys(keywords);
-        driver.findElement(By.cssSelector("#search")).sendKeys(Keys.RETURN);
+        driver.findElement(By.cssSelector("#search")).sendKeys(keywords, Keys.RETURN);
     }
 }
