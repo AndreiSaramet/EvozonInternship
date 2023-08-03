@@ -14,10 +14,12 @@ public class WishlistTest {
 
         new LoginTest().loginDriver(driver, "john@email.com", "password");
 
-        this.addToWishlistDriver(driver);
+        final String productName = "Core Striped Sport Shirt";
 
-        final String expected = String.format("%s has been added to your wishlist. Click here to continue shopping.", "Chelsea Tee");
-        if (driver.findElement(By.cssSelector("body > div > div > div.main-container.col2-left-layout > div > div.col-main > div.my-account > div.my-wishlist > ul > li > ul > li > span")).getText().equals(expected)) {
+        this.addToWishlistDriver(driver, productName);
+
+        final String expected = String.format("%s has been added to your wishlist. Click here to continue shopping.", productName);
+        if (driver.findElement(By.cssSelector(".success-msg span")).getText().equals(expected)) {
             System.out.println("Success!");
         } else {
             System.err.println("Fail");
@@ -25,11 +27,11 @@ public class WishlistTest {
         driver.close();
     }
 
-    public void addToWishlistDriver(WebDriver driver) {
-        final WebElement category = driver.findElement(By.cssSelector("#nav > ol > li.level0.nav-2.parent > a"));
+    public void addToWishlistDriver(final WebDriver driver, final String productName) {
+        final WebElement category = driver.findElement(By.cssSelector("li.nav-2 > a"));
         Actions action = new Actions(driver);
         action.moveToElement(category).perform();
-        driver.findElement(By.cssSelector("#nav > ol > li.level0.nav-2.parent > ul > li.level1.nav-2-1.first > a")).click();
-        driver.findElement(By.cssSelector("body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(2) > div > div.actions > ul > li:nth-child(1) > a")).click();
+        driver.findElement(By.cssSelector("li.nav-2-3 > a")).click();
+        driver.findElement(By.cssSelector(String.format("[title=\"%s\"] + div a.link-wishlist", productName))).click();
     }
 }
