@@ -1,9 +1,6 @@
 package com.evozon;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -57,29 +54,37 @@ public class SortTest extends BaseTest {
 
     private void comparePrices(final BiPredicate<Double, Double> compare) {
         NumberFormat format = NumberFormat.getInstance(Locale.UK);
-        final String price1String = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(1) > div > div.price-box")).getText().substring(1);
-        final String price2String = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(2) > div > div.price-box")).getText().substring(1);
         try {
-            Assert.assertTrue(compare.test(format.parse(price1String).doubleValue(), format.parse(price2String).doubleValue()));
+            int elementsNo = this.driver.findElements(By.cssSelector(".products-grid > li")).size();
+            while (elementsNo > 1) {
+                final String price1String = driver.findElement(By.cssSelector(String.format(".products-grid > li:nth-child(%d) .price", elementsNo - 1))).getText().substring(1);
+                final String price2String = driver.findElement(By.cssSelector(String.format(".products-grid > li:nth-child(%d) .price", elementsNo))).getText().substring(1);
+                Assert.assertTrue(compare.test(format.parse(price1String).doubleValue(), format.parse(price2String).doubleValue()));
+                elementsNo--;
+            }
         } catch (ParseException nfe) {
             Assert.fail(nfe.toString());
         }
     }
 
     private void compareNames(final BiPredicate<String, String> compare) {
-        final String name1 = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(2) > div > h2")).getText();
-        final String name2 = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(7) > div > h2")).getText();
-        Assert.assertTrue(compare.test(name1, name2));
+        int elementsNo = this.driver.findElements(By.cssSelector(".products-grid > li")).size() - 1;
+        while (elementsNo > 1) {
+            final String name1 = driver.findElement(By.cssSelector(String.format(".products-grid li:nth-child(%d) .product-name", elementsNo - 1))).getText();
+            final String name2 = driver.findElement(By.cssSelector(String.format(".products-grid li:nth-child(%d) .product-name", elementsNo))).getText();
+            Assert.assertTrue(compare.test(name1, name2));
+            elementsNo--;
+        }
     }
 
     private void sortByDriver(final String option) {
-        new Actions(driver).moveToElement(driver.findElement(By.cssSelector("#nav > ol > li.level0.nav-3.parent > a"))).perform();
-        driver.findElement(By.cssSelector("#nav > ol > li.level0.nav-3.parent > ul > li.level1.nav-3-2 > a")).click();
-        new Select(driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > div.toolbar > div.sorter > div > select"))).selectByVisibleText(option);
+        new Actions(driver).moveToElement(driver.findElement(By.cssSelector(".nav-3 > a"))).perform();
+        driver.findElement(By.cssSelector(".nav-3-3 > a")).click();
+        new Select(driver.findElement(By.cssSelector(".category-products > .toolbar select[title=\"Sort By\"]"))).selectByVisibleText(option);
     }
 
 
     private void sortDsc() {
-        driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > div.toolbar > div.sorter > div > a")).click();
+        driver.findElement(By.cssSelector(".category-products > .toolbar .sort-by-switcher")).click();
     }
 }
