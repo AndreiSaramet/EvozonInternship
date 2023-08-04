@@ -12,6 +12,9 @@ public class Homepage extends BasePage {
     @FindBy(css = "a[title='Log In']")
     private WebElement loginLink;
 
+    @FindBy(css = "a[title=Register]")
+    private WebElement registerLink;
+
     public Homepage(final WebDriver driver) {
         super(driver);
     }
@@ -26,5 +29,9 @@ public class Homepage extends BasePage {
 
     public void clickLoginLink() {
         this.loginLink.click();
+    }
+
+    public void clickRegisterLink() {
+        this.registerLink.click();
     }
 }

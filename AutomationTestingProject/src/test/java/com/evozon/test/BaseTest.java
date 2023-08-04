@@ -1,18 +1,18 @@
 package com.evozon.test;
 
-import com.evozon.pages.AccountPage;
-import com.evozon.pages.Homepage;
-import com.evozon.pages.LoginPage;
+import com.evozon.pages.*;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class BaseTest {
+public abstract class BaseTest {
     protected WebDriver driver;
     protected Homepage homepage;
     protected LoginPage loginPage;
+    protected RegisterPage registerPage;
     protected AccountPage accountPage;
+    protected HeaderPage headerPage;
 
     @Before
     public void initDriver() {
@@ -21,7 +21,9 @@ public class BaseTest {
         this.driver.manage().window().maximize();
         this.homepage = new Homepage(driver);
         this.loginPage = new LoginPage(driver);
+        this.registerPage = new RegisterPage(driver);
         this.accountPage = new AccountPage(driver);
+        this.headerPage = new HeaderPage(driver);
         this.homepage.open();
     }
 
