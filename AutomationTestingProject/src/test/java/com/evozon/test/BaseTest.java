@@ -14,7 +14,9 @@ public abstract class BaseTest {
     protected AccountPage accountPage;
     protected HeaderPage headerPage;
     protected ProductsGridPage productsGridPage;
-    protected WishlistPage wishlistPage;
+
+
+    protected CartPage cartPage;
 
     @Before
     public void initDriver() {
@@ -27,7 +29,7 @@ public abstract class BaseTest {
         this.accountPage = new AccountPage(driver);
         this.headerPage = new HeaderPage(driver);
         this.productsGridPage = new ProductsGridPage(driver);
-        this.wishlistPage = new WishlistPage(driver);
+        this.cartPage = new CartPage(driver);
         this.homepage.open();
     }
 

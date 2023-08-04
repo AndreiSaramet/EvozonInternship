@@ -27,4 +27,8 @@ public class ProductsGridPage extends BasePage {
     public void addToWishlistByName(final String name) {
         this.findByName(name).findElement(By.cssSelector(".products-grid .item .link-wishlist")).click();
     }
+
+    public void addToCartByName(final String name) {
+        this.findByName(name).findElement(By.cssSelector(".actions [type='button'].btn-cart")).click();
+    }
 }
