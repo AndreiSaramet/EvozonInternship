@@ -1,0 +1,1 @@
+"Beef Meat", "Pork Meat", "Chicken Meat", "Turkey Meat", "Lamb Meat", "Fish Meat", "Milk ", "Cheese ", "Yogurt", "Butter", "Eggs", "Bread", "Pasta ", "Rice ", "Cereal", "Flour", "Ketchup", "Mustard", "Mayonnaise", "Soy Sauce", "Vinegar", "Salt", "Pepper", "Water", "Juice"
