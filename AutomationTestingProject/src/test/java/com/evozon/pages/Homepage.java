@@ -9,6 +9,9 @@ public class Homepage extends BasePage {
     @FindBy(css = ".skip-account .label")
     private WebElement accountLink;
 
+    @FindBy(css = ".skip-cart .label")
+    private WebElement cartLink;
+
     @FindBy(css = "a[title='Log In']")
     private WebElement loginLink;
 
