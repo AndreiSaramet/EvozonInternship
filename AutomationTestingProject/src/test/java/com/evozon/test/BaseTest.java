@@ -14,8 +14,6 @@ public abstract class BaseTest {
     protected AccountPage accountPage;
     protected HeaderPage headerPage;
     protected ProductsGridPage productsGridPage;
-
-
     protected CartPage cartPage;
 
     @Before

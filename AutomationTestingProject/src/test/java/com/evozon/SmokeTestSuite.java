@@ -1,5 +1,9 @@
 package com.evozon;
 
+import com.evozon.test.CartTest;
+import com.evozon.test.CheckoutTest;
+import com.evozon.test.LoginTest;
+import com.evozon.test.RegisterTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
