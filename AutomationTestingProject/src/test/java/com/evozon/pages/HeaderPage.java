@@ -36,6 +36,9 @@ public class HeaderPage extends BasePage {
     @FindBy(css = "li.nav-3 > a")
     private WebElement accessoriesSectionLink;
 
+    @FindBy(css = "li.nav-3-3 > a")
+    private WebElement shoesSubsectionLink;
+
     @FindBy(css = "li.nav-4 > a")
     private WebElement homeDecorSectionLink;
 
@@ -81,6 +84,10 @@ public class HeaderPage extends BasePage {
 
     public void clickAccessoriesSectionLink() {
         new Actions(driver).moveToElement(this.accessoriesSectionLink).perform();
+    }
+
+    public void clickShoesSubsectionLink() {
+        this.shoesSubsectionLink.click();
     }
 
     public void clickHomeDecorSectionLink() {
