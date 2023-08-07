@@ -3,7 +3,7 @@ package com.evozon.test;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CartTest extends BaseTest {
+public class CartTest extends BaseApplicationTest {
     @Test
     public void validAddToCartTest() {
         final String productName = "TestProduct";

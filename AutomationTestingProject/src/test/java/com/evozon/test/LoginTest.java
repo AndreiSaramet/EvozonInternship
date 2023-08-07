@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class LoginTest extends BaseTest {
+public class LoginTest extends BaseApplicationTest {
 
     @Before
     public void beforeEach() {

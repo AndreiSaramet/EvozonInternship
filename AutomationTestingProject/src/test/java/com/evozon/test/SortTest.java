@@ -9,7 +9,7 @@ import java.text.ParseException;
 import java.util.Locale;
 import java.util.function.Function;
 
-public class SortTest extends BaseTest {
+public class SortTest extends BaseApplicationTest {
     private final NumberFormat format = NumberFormat.getInstance(Locale.UK);
     private final Function<WebElement, Double> priceExtractor = el -> {
         try {

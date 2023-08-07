@@ -3,7 +3,7 @@ package com.evozon.test;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class SearchTest extends BaseTest {
+public class SearchTest extends BaseApplicationTest {
 
     @Test
     public void validSearchNoResultTest() {

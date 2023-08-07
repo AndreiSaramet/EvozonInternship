@@ -3,7 +3,7 @@ package com.evozon.test;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CompareTest extends BaseTest {
+public class CompareTest extends BaseApplicationTest {
 
     @Test
     public void validAddToCompareTest() {

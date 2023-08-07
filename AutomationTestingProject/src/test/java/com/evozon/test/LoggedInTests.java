@@ -5,7 +5,7 @@ import com.evozon.pages.WishlistPage;
 import com.evozon.utils.Constants;
 import org.junit.Before;
 
-public class LoggedInTests extends BaseTest {
+public class LoggedInTests extends BaseApplicationTest {
     protected WishlistPage wishlistPage;
 
     protected CheckoutPage checkoutPage;

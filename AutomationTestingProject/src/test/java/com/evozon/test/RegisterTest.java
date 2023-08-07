@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class RegisterTest extends BaseTest {
+public class RegisterTest extends BaseApplicationTest {
     @Before
     public void beforeEach() {
         this.homepage.clickAccountLink();
