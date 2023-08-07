@@ -43,23 +43,23 @@ public class CheckoutPage extends BasePage {
     }
 
     public void clickShippingContinueButton() {
-        new WebDriverWait(this.driver, Duration.ofSeconds(120)).until(ExpectedConditions.elementToBeClickable(this.shippingContinueButton)).click();
+        new WebDriverWait(this.driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(this.shippingContinueButton)).click();
     }
 
     public void setFlatRateShippingMethodRadioButton() {
-        new WebDriverWait(this.driver, Duration.ofSeconds(600)).until(ExpectedConditions.elementToBeClickable(this.flatRateShippingMethodRadioButton)).click();
+        new WebDriverWait(this.driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(this.flatRateShippingMethodRadioButton)).click();
     }
 
 
     public void clickShippingMethodContinueButton() {
-        new WebDriverWait(this.driver, Duration.ofSeconds(660)).until(ExpectedConditions.elementToBeClickable(this.shippingMethodContinueButton)).click();
+        new WebDriverWait(this.driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(this.shippingMethodContinueButton)).click();
     }
 
     public void clickPaymentContinueButton() {
-        new WebDriverWait(this.driver, Duration.ofSeconds(120)).until(ExpectedConditions.elementToBeClickable(this.paymentContinueButton)).click();
+        new WebDriverWait(this.driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(this.paymentContinueButton)).click();
     }
 
     public void clickReviewContinueButton() {
-        new WebDriverWait(this.driver, Duration.ofSeconds(120)).until(ExpectedConditions.elementToBeClickable(this.reviewContinueButton)).click();
+        new WebDriverWait(this.driver, Duration.ofSeconds(60)).until(ExpectedConditions.elementToBeClickable(this.reviewContinueButton)).click();
     }
 }

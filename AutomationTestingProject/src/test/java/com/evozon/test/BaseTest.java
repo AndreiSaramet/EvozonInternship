@@ -1,6 +1,7 @@
 package com.evozon.test;
 
 import com.evozon.pages.*;
+import org.checkerframework.checker.units.qual.C;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -15,9 +16,8 @@ public abstract class BaseTest {
     protected HeaderPage headerPage;
     protected ProductsGridPage productsGridPage;
     protected CartPage cartPage;
-
     protected OrderConfirmationPage orderConfirmationPage;
-
+    protected ComparePage comparePage;
     @Before
     public void initDriver() {
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
@@ -31,6 +31,7 @@ public abstract class BaseTest {
         this.productsGridPage = new ProductsGridPage(driver);
         this.cartPage = new CartPage(driver);
         this.orderConfirmationPage = new OrderConfirmationPage(driver);
+        this.comparePage = new ComparePage(driver);
         this.homepage.open();
     }
 

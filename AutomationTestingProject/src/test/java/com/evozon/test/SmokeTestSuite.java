@@ -1,4 +1,4 @@
-package com.evozon;
+package com.evozon.test;
 
 import com.evozon.test.CartTest;
 import com.evozon.test.CheckoutTest;
