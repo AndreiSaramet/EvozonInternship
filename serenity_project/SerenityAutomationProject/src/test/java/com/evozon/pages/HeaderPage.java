@@ -7,6 +7,12 @@ public class HeaderPage extends BasePage {
     @FindBy(className = "welcome-msg")
     private WebElementFacade welcomeTextParagraph;
 
+    @FindBy(id = "search")
+    private WebElementFacade searchInput;
+
+    @FindBy(className = "search-button")
+    private WebElementFacade searchButton;
+
     public String getWelcomeText() {
         return this.welcomeTextParagraph.getText();
     }
@@ -15,5 +21,13 @@ public class HeaderPage extends BasePage {
         return this.welcomeTextParagraph.getText()
                 .replaceAll("WELCOME, ", "")
                 .replaceAll("!", "");
+    }
+
+    public void setSearchInput(final String searchText) {
+        this.typeInto(this.searchInput, searchText);
+    }
+
+    public void clickSearchButton() {
+        this.clickOn(this.searchButton);
     }
 }
