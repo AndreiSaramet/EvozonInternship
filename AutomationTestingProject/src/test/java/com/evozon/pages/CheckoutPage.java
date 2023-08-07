@@ -43,7 +43,6 @@ public class CheckoutPage extends BasePage {
     }
 
     public void clickShippingContinueButton() {
-        this.shippingContinueButton.click();
         new WebDriverWait(this.driver, Duration.ofSeconds(120)).until(ExpectedConditions.elementToBeClickable(this.shippingContinueButton)).click();
     }
 

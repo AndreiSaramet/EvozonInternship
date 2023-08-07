@@ -20,7 +20,6 @@ public class CheckoutTest extends LoggedInTests {
         this.checkoutPage.setShipDifferentAddressRadioButton();
         this.checkoutPage.clickBillingContinueButton();
         this.checkoutPage.clickShippingContinueButton();
-        this.checkoutPage.setFlatRateShippingMethodRadioButton();
         this.checkoutPage.clickShippingMethodContinueButton();
         this.checkoutPage.clickPaymentContinueButton();
         this.checkoutPage.clickReviewContinueButton();

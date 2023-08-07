@@ -4,7 +4,7 @@ import com.evozon.pages.*;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class BaseTest {
     protected WebDriver driver;
@@ -21,8 +21,7 @@ public abstract class BaseTest {
     @Before
     public void initDriver() {
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
-        System.setProperty("webdriver.edge.driver", "resources/msedgedriver");
-        this.driver = new EdgeDriver();
+        this.driver = new ChromeDriver();
         this.driver.manage().window().maximize();
         this.homepage = new Homepage(driver);
         this.loginPage = new LoginPage(driver);
