@@ -1,16 +1,10 @@
 package com.evozon.steps;
 
-import com.evozon.pages.HeaderPage;
-import com.evozon.pages.RegisterPage;
 import net.thucydides.core.annotations.Step;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 
 public class RegisterSteps extends BaseSteps {
-    private RegisterPage registerPage;
-
-    private HeaderPage headerPage;
-
     @Step
     public void navigateToRegisterPage() {
         this.homePage.clickAccountLink();

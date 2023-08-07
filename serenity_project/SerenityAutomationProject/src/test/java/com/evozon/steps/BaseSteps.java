@@ -1,14 +1,14 @@
 package com.evozon.steps;
 
-import com.evozon.pages.HomePage;
-import net.thucydides.core.annotations.Step;
+import com.evozon.pages.*;
 import net.thucydides.core.steps.ScenarioSteps;
 
 public abstract class BaseSteps extends ScenarioSteps {
     protected HomePage homePage;
-
-    @Step
-    public void navigateToHomepage() {
-        this.homePage.open();
-    }
+    protected HeaderPage headerPage;
+    protected ProductsGridPage productsGridPage;
+    protected CartPage cartPage;
+    protected LoginPage loginPage;
+    protected AccountPage accountPage;
+    protected RegisterPage registerPage;
 }

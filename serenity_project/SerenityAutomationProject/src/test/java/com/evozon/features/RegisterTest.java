@@ -1,17 +1,12 @@
 package com.evozon.features;
 
-import com.evozon.steps.RegisterSteps;
 import com.github.javafaker.Faker;
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(SerenityRunner.class)
 public class RegisterTest extends BaseTest {
-    @Steps
-    private RegisterSteps registerSteps;
-
     @Test
     public void validRegisterTest() {
         final Faker faker = new Faker();
@@ -19,7 +14,6 @@ public class RegisterTest extends BaseTest {
         final String middleName = faker.name().nameWithMiddle();
         final String lastName = faker.name().lastName();
         final String password = faker.internet().password(6, 20);
-        this.registerSteps.navigateToHomepage();
         this.registerSteps.navigateToRegisterPage();
         this.registerSteps.enterFirstName(firstName);
         this.registerSteps.enterMiddleName(middleName);

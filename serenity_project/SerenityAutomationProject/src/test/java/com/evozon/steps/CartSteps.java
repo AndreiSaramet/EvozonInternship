@@ -1,18 +1,9 @@
 package com.evozon.steps;
 
-import com.evozon.pages.CartPage;
-import com.evozon.pages.HeaderPage;
-import com.evozon.pages.ProductsGridPage;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 
 public class CartSteps extends BaseSteps {
-    public HeaderPage headerPage;
-
-    public ProductsGridPage productsGridPage;
-
-    public CartPage cartPage;
-
     @Step
     public void enterSearchText(final String searchText) {
         this.headerPage.setSearchInput(searchText);
