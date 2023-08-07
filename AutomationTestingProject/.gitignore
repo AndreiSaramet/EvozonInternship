@@ -13,6 +13,8 @@ target/
 *.ipr
 .idea
 chromedriver
+msedgedriver
+geckodriver
 
 ### Eclipse ###
 .apt_generated
