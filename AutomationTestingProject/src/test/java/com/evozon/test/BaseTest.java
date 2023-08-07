@@ -18,6 +18,9 @@ public abstract class BaseTest {
     protected CartPage cartPage;
     protected OrderConfirmationPage orderConfirmationPage;
     protected ComparePage comparePage;
+
+    protected SearchResultPage searchResultPage;
+
     @Before
     public void initDriver() {
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
@@ -32,6 +35,7 @@ public abstract class BaseTest {
         this.cartPage = new CartPage(driver);
         this.orderConfirmationPage = new OrderConfirmationPage(driver);
         this.comparePage = new ComparePage(driver);
+        this.searchResultPage = new SearchResultPage(driver);
         this.homepage.open();
     }
 
